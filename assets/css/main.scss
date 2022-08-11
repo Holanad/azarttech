@@ -1774,19 +1774,45 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(76.36deg, rgba(235, 235, 235, 0.65) 0%, rgba(250, 250, 250, 0.65) 100%);
-            border: 1px solid rgba(33, 33, 43, 0.1);
-            backdrop-filter: blur(30px);
             width: calc(100% - 40px);
-            border-radius: 12px;
             padding: 14px;
             transition: all ease-in .4s;
+            &::before {
+                content: '';
+                background: linear-gradient(76.36deg, rgba(235, 235, 235, 0.65) 0%, rgba(250, 250, 250, 0.65) 100%);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                border: 1px solid rgba(33, 33, 43, 0.1);
+                backdrop-filter: blur(30px);
+                z-index: -1;
+            }
+            &::after {
+                content: '';
+                background: #fff;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                border: 1px solid rgba(33, 33, 43, 0.1);
+                backdrop-filter: blur(30px);
+                z-index: 1;
+                opacity: 0;
+                transition: all ease-in .4s;
+            }
             &__title {
                 font-size: 16px;
                 line-height: 19px;
                 font-weight: 600;
                 margin-bottom: 4px;
                 transition: all ease-in .4s;
+                position: relative;
+                z-index: 2;
             }
             &__date {
                 font-size: 16px;
@@ -1794,6 +1820,8 @@
                 line-height: 19px;
                 color: #21212B;
                 opacity: 0.5;
+                position: relative;
+                z-index: 2;
             }
         }
         &:hover {
@@ -1804,12 +1832,8 @@
                     }
                 }
                 &-text {
-                    background: #ED6E13;
-                    &__title {
-                        color: #fff;
-                    }
-                    &__date {
-                        color: #fff;
+                    &::after {
+                        opacity: 1;
                     }
                 }
             }
@@ -2075,24 +2099,54 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(76.36deg, rgba(235, 235, 235, 0.65) 0%, rgba(250, 250, 250, 0.65) 100%);
-            border: 1px solid rgba(33, 33, 43, 0.1);
-            backdrop-filter: blur(30px);
             border-radius: 12px;
             padding: 14px;
+            &::before {
+                content: '';
+                background: linear-gradient(76.36deg, rgba(235, 235, 235, 0.65) 0%, rgba(250, 250, 250, 0.65) 100%);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                border: 1px solid rgba(33, 33, 43, 0.1);
+                backdrop-filter: blur(30px);
+                z-index: -1;
+            }
+            &::after {
+                content: '';
+                background: #fff;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                border: 1px solid rgba(33, 33, 43, 0.1);
+                backdrop-filter: blur(30px);
+                z-index: 1;
+                opacity: 0;
+                transition: all ease-in .4s;
+            }
             &__title {
                 transition: all ease-in .4s;
                 font-size: 16px;
                 line-height: 19px;
                 font-weight: 600;
                 margin-bottom: 4px;
+                position: relative;
+                z-index: 2;
             }
             &__post {
                 transition: all ease-in .4s;
                 font-size: 16px;
                 line-height: 19px;
                 opacity: 0.5;
+                position: relative;
+                z-index: 2;
             }
+            
         }
         &:hover {
             .actor-item {
@@ -2102,12 +2156,8 @@
                     }
                 }
                 &-info {
-                    background: #ED6E13;
-                    &__title {
-                        color: #fff;
-                    }
-                    &__post {
-                        color: #fff;
+                    &::after {
+                        opacity: 1;
                     }
                 }
             }
